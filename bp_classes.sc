@@ -1,5 +1,4 @@
-VerbEF {
-
+VerbEF { // Credit: Eli Fieldsteel
     *ar {
         arg in, dec=3.5, mix=0.08, lpf1=2000, lpf2=6000, predel=0.025, mul=1, add=0;
         var dry, wet, sig;
@@ -33,7 +32,7 @@ VerbEF {
 
 }
 
-ColorEF {
+ColorEF { // Credit: Eli Fieldsteel
     var <color, <window;
 
     *new { ^super.new.make; }
@@ -83,7 +82,6 @@ ColorEF {
 }
 
 ControlPoster {
-
     *new {
         arg synthname = \default, class = "Pbind";
         var prefix = switch(
@@ -105,7 +103,6 @@ ControlPoster {
 }
 
 BarberPole {
-
     *ar {|in, sweep_rate = 0.01, db_cut = (-50),
         fm_rate = 0.1, fm_midinotes = 0,
         am_rate = 0.1, am_min = (-6), am_max = (-6),
@@ -129,7 +126,6 @@ BarberPole {
 }
 
 BarberPole2 {
-
     *ar {|in, rate = 0.01, fm_rate = 0.1, fm_amt = 0,
         am_rate = 0.1, am_amt = 0, min_db = -3, max_db = -50,
         rq_rate = 0.1, rq_min = 0.1, rq_max = 0.1|
@@ -184,7 +180,7 @@ HPF1pole {
     }
 }
 
-Schroeder2 {
+Schroeder2 { // Credit: https://en.wikibooks.org/wiki/Designing_Sound_in_SuperCollider/Schroeder_reverb
     *ar {|in, roomSize=1.0, lpf=8000, hpf=100|
         var output, delrd, sig, deltimes;
         delrd = LocalIn.ar(4);

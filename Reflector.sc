@@ -1,6 +1,6 @@
 // Pseudo unit generator
 // to be put in Platform.userExtensionDir ++ "/Reflector.sc"
-Reflector : Object {
+Reflector : Object { // Credit: Alik Rustamov (@alikthename)
 	*ar { arg
 		input,
 		numReflcs = 5,

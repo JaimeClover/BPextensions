@@ -172,7 +172,7 @@ Polybjorklund2 : Pattern {
     }
 }
 
-Psine {
+Psine { // Credit: Glen Fraser (github: totalgee/bacalao)
     *new { arg periodBars=1, phase=0, mul=1, add=0, repeats=inf;
         // We don't use Ptime (except as fallback when a 'time' key isn't there)
         // so we get elapsed time for the "overall" pattern, not sub-patterns.
@@ -193,7 +193,7 @@ Psine {
     }
 }
 
-Psaw {
+Psaw { // Credit: Glen Fraser (github: totalgee/bacalao)
     *new { arg periodBars=1, phase=0, mul=1, add=0, repeats=inf;
         // We don't use Ptime (except as fallback when a 'time' key isn't there)
         // so we get elapsed time for the "overall" pattern, not sub-patterns.
@@ -213,24 +213,3 @@ Psaw {
         ^Psaw.new(periodBars, phase, 1, 0, repeats).lincurve(-1,1, lo,hi, curve);
     }
 }
-
-
-/*~polybjorklund = {
-|k = 4, n = 12, offset = 0, weight = 1|
-// k: number of "hits" per phrase (use an array for polyrhythms, integer for monorhythm)
-// n: number of beats in a phrase (use an array for polymeters, integer for monometer)
-// offset: rotate the rhythms by some integer (use an array to get different offsets for each sub-rhythm)
-// weight: an array of 1s and -1s (e.g. [1, 1, -1]), a way of adding or subtracting each sub-rhythm from the final result.
-var results = ();
-var output = 0;
-k = k.asArray; n = n.asArray; offset = offset.asArray; weight = weight.asArray;
-weight.asSet.do{|w| results[w] = 0};
-maxItem([k.size, n.size, offset.size, weight.size]).collect({|i|
-var thisPolygon = Pbjorklund(k.wrapAt(i), n.wrapAt(i), inf, offset.wrapAt(i));
-results[weight.wrapAt(i)] = (results[weight.wrapAt(i)] + thisPolygon).clip(0, 1);
-});
-results.keysValuesDo({|weight, pattern|
-output = output + (pattern * weight);
-});
-output.clip(0, 1);
-};*/

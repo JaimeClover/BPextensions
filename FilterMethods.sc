@@ -1,4 +1,4 @@
-+ UGen {
++ UGen { // credit: Rohan Drape (@rdd)
     allpassC {
         arg maxdelaytime = 0.2,delaytime = 0.2,decaytime = 1.0;
         ^AllpassC.multiNew(this.rate,this,maxdelaytime,delaytime,decaytime)

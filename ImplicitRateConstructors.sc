@@ -1,3 +1,4 @@
+// Credit: Rohan Drape (@rdd)
 + AmpComp { *new { arg freq = 0.0,root = 0.0,exp = 0.3333; ^AmpComp.multiNew('audio',freq,root,exp) } }
 + AmpCompA { *new { arg freq = 1000.0,root = 0.0,minAmp = 0.32,rootAmp = 1.0; ^AmpCompA.multiNew('audio',freq,root,minAmp,rootAmp) } }
 + Amplitude { *new { arg in = 0.0,attackTime = 1.0e-2,releaseTime = 1.0e-2; ^Amplitude.multiNew('audio',in,attackTime,releaseTime) } }

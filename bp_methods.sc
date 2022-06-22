@@ -1,4 +1,4 @@
-+ SimpleNumber {
++ SimpleNumber { // Credit: Eli Fieldsteel
     tempodur {
         ^(60 / this)
     }
@@ -13,8 +13,7 @@
     }
 }
 
-+ Env {
-
++ Env { // Credit: Eli Fieldsteel
 	*rand {
 		arg numSegs, dur=1, bipolar=true;
 		var env, levels, times, curves, minLevel;
@@ -30,8 +29,7 @@
 
 }
 
-+ Window {
-
++ Window { // Credit: Eli Fieldsteel
 	*blackout {
 		var win;
 		win = Window.new("", Window.screenBounds, false, false);

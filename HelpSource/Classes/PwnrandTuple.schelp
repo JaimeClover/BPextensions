@@ -1,0 +1,43 @@
+TITLE:: PwnrandTuple
+summary:: embed values randomly chosen from a list of Patterns
+categories:: Streams-Patterns-Events>Patterns>List
+related:: Classes/PwrandTuple, Classes/Prand, Classes/Pxrand, Classes/Pwrand, Classes/Pwnxrand, Classes/Pwnrand
+
+DESCRIPTION::
+Like link::Classes/PwrandTuple::, but the weights are normalized, so they don't have to sum to 1.0.
+
+
+CLASSMETHODS::
+
+METHOD:: new
+
+ARGUMENT:: list
+a list of patterns and/or objects that respond to the code::asStream:: message.
+
+ARGUMENT:: weights
+a list of weights indicating the probability of choosing each item in the list. Should be the same size as list.
+
+ARGUMENT:: repeats
+the number of times to repeat.
+
+
+EXAMPLES::
+
+code::
+(
+var a, b;
+a = PwnrandTuple([Pwhite(0, 1), Pwhite(6, 7)], [1, 2], 6);	// return 6 items
+b = a.asStream;
+7.do({ b.next.postln; });
+)
+
+//PwnrandTuple used as a sequence of pitches:
+//notice how the list can contain a combination of patterns and simple numbers
+
+(
+Pbind(
+    \degree, PwnrandTuple([Pwhite(0, 4), 7], [3, 2], inf),
+    \dur, 0.2
+).play;
+)
+::

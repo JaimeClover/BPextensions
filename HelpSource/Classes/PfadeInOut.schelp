@@ -1,10 +1,10 @@
 TITLE:: PfadeInOut
 summary:: Fade a pattern in, hold it for a while, then fade out
 categories:: Streams-Patterns-Events>Patterns>Filter
-related:: Classes/PfadeIn, Classes/PfadeOut
+related:: Classes/PfadeIn, Classes/PfadeOut, Classes/Pseg
 
 DESCRIPTION::
-Fades a pattern in, holds it for a while, then fades it out. An alternate syntax uses the code::.fadeinout:: message on any pattern to produce the same effect.
+Fades an event pattern in, holds it for a while, then fades it out. This works by modifying the code::\amp:: key of each event, so the effect is heard on an event-by-event basis, and not during each note. An alternate syntax uses the code::.fadeinout:: message on any event pattern to produce the same effect.
 
 
 CLASSMETHODS::
@@ -12,7 +12,7 @@ CLASSMETHODS::
 METHOD:: new
 
 ARGUMENT:: pattern
-A pattern to fade in and fade out
+An event pattern to fade in and fade out.
 
 ARGUMENT:: fadeInTime
 duration in beats of the fade-in

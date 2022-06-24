@@ -1,0 +1,36 @@
+TITLE:: PfadeInOut
+summary:: Fade a pattern in, hold it for a while, then fade out
+categories:: Streams-Patterns-Events>Patterns>Filter
+related:: Classes/PfadeIn, Classes/PfadeOut
+
+DESCRIPTION::
+Fades a pattern in, holds it for a while, then fades it out. An alternate syntax uses the code::.fadeinout:: message on any pattern to produce the same effect.
+
+
+CLASSMETHODS::
+
+METHOD:: new
+
+ARGUMENT:: pattern
+A pattern to fade in and fade out
+
+ARGUMENT:: fadeInTime
+duration in beats of the fade-in
+
+ARGUMENT:: holdTime
+duration in beats to stay at peak level
+
+ARGUMENT:: fadeOutTime
+duration in beats of the fade-out
+
+ARGUMENT:: tolerance
+
+
+EXAMPLES::
+
+code::
+PfadeInOut(Pbind(\degree, Pwhite(0, 7)), 5, 3, 8).play;
+
+// alternate syntax:
+Pbind(\degree, Pwhite(0, 7)).fadeinout(5, 3, 8).play;
+::

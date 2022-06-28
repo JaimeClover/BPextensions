@@ -1,0 +1,133 @@
+TITLE:: PLFNoise
+summary:: Pattern version of LFNoise1. Move randomly between two endpoints at a specified rate.
+categories:: Streams-Patterns-Events>Patterns>Time
+related:: Classes/Pseg, Classes/LFNoise1
+
+DESCRIPTION::
+Like link::Classes/LFNoise1::, PLFNoise moves randomly between points within a given range, at a given rate.
+
+
+CLASSMETHODS::
+
+METHOD:: new
+Randomly move between 1.0 and -1.0 (by default). The range may be adjusted with the mul and add arguments.
+
+ARGUMENT:: freq
+The rate at which to choose new random values
+
+ARGUMENT:: mul
+
+ARGUMENT:: add
+
+ARGUMENT:: curve
+curvature of the line connecting points
+
+ARGUMENT:: repeats
+
+
+METHOD:: range
+Randomly move between lo and hi values, with linear interpolation by default.
+
+ARGUMENT:: lo
+The low endpoint of the desired range
+
+ARGUMENT:: hi
+The high endpoint of the desired range
+
+ARGUMENT:: freq
+The rate at which to choose new random values
+
+ARGUMENT:: curve
+curvature of the line connecting points (defaults to 'lin')
+
+ARGUMENT:: repeats
+
+
+METHOD:: exprange
+Randomly move between lo and hi values, with exponential interpolation. lo and hi values should be non-zero and have the same sign.
+
+ARGUMENT:: lo
+The low endpoint of the desired range
+
+ARGUMENT:: hi
+The high endpoint of the desired range
+
+ARGUMENT:: freq
+The rate at which to choose new random values
+
+ARGUMENT:: repeats
+
+
+METHOD:: curverange
+Randomly move between lo and hi values, with a specified numeric curvature for each segment
+
+ARGUMENT:: lo
+The low endpoint of the desired range
+
+ARGUMENT:: hi
+The high endpoint of the desired range
+
+ARGUMENT:: curve
+Numeric curvature of the line connecting points
+
+ARGUMENT:: freq
+The rate at which to choose new random values
+
+ARGUMENT:: repeats
+
+
+METHOD:: unipolar
+Randomly move between mul and 0
+
+ARGUMENT:: mul
+
+ARGUMENT:: freq
+The rate at which to choose new random values
+
+ARGUMENT:: curve
+curvature of the line connecting points
+
+ARGUMENT:: repeats
+
+
+METHOD:: bipolar
+Randomly move between mul and -mul
+
+ARGUMENT:: mul
+
+ARGUMENT:: freq
+The rate at which to choose new random values
+
+ARGUMENT:: curve
+curvature of the line connecting points
+
+ARGUMENT:: repeats
+
+
+EXAMPLES::
+
+code::
+// glide between 2 octaves
+(
+Pbind(
+    \note,  PLFNoise(1/3, 12),
+    \dur, 0.1
+).play;
+)
+
+// specify a range
+(
+Pbind(
+    \note,  PLFNoise.range(0, 24, 1/3),
+    \dur, 0.1
+).play;
+)
+
+// use exprange for exponentially distributed values (like freq)
+(
+Pbind(
+    \freq,  PLFNoise.exprange(200, 800, 1/3),
+    \dur, 0.1
+).play;
+)
+::

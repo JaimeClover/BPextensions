@@ -29,12 +29,12 @@ PLFNoise : Pattern {
         ^PLFNoise(freq, mul, add, curve, repeats);
     }
 
-    *exprange {arg lo = 0.01, hi = 1.0, freq = 1, curve = 'exp', repeats = inf;
-        ^PLFNoise(freq, 1.0, 0.0, curve, repeats).linexp(-1, 1, lo, hi);
+    *exprange {arg lo = 0.01, hi = 1.0, freq = 1, repeats = inf;
+        ^PLFNoise(freq, 1.0, 0.0, 'lin', repeats).linexp(-1, 1, lo, hi);
     }
 
-    *curverange {arg lo = 0.01, hi = 1.0, curve = -4, freq = 1, envcurve = 'lin', repeats = inf;
-        ^PLFNoise(freq, 1.0, 0.0, envcurve, repeats).lincurve(-1, 1, lo, hi, curve);
+    *curverange {arg lo = 0.01, hi = 1.0, curve = -4, freq = 1, repeats = inf;
+        ^PLFNoise(freq, 1.0, 0.0, 'lin', repeats).lincurve(-1, 1, lo, hi, curve);
     }
 
     *bipolar {arg mul = 1.0, freq = 1, curve = 'lin', repeats = inf;

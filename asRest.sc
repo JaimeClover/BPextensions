@@ -10,3 +10,7 @@
         if (this.asInteger == 0) {^Rest()} {^this}
     }
 }
+
++ AbstractFunction {
+    asRest { ^this.composeUnaryOp('asRest') }
+}

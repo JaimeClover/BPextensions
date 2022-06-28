@@ -1,0 +1,45 @@
+TITLE:: Pyes
+summary:: embed rests in a pattern, given a list of probabilities
+categories:: Streams-Patterns-Events>Patterns>List
+related:: Classes/Rest
+
+DESCRIPTION::
+Embed rests in a pattern, given a list of probabilities. Lower probabilities (close to 0.0) will produce more rests. Higher probabilities (close to 1.0) will return true.
+
+
+CLASSMETHODS::
+
+METHOD:: new
+
+ARGUMENT:: list
+a list of probabilities between 0.0 and 1.0
+
+ARGUMENT:: repeats
+number of times to repeat the list
+
+ARGUMENT:: offset
+
+
+EXAMPLES::
+
+code::
+Pyes([0.0, 1.0], 3).iter.all;
+
+// every third note is a rest, 80% of the time:
+(
+Pbind(
+    \yes, Pyes([1, 1, 0.2], inf),
+    \degree, Pwhite(0, 7),
+    \dur, 1/6
+).play;
+)
+
+// note probability glides from 1.0 to 0.0 every 4 notes:
+(
+Pbind(
+    \yes, Pyes((3..0) / 3, inf),
+    \degree, Pwhite(0, 7),
+    \dur, 1/8
+).play;
+)
+::

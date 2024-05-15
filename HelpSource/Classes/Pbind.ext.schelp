@@ -1,0 +1,7 @@
+INSTANCEMETHODS::
+
+METHOD:: degree
+sets the \degree key, which chooses a degree from a scale (defined by the \scale key) and converts it to \freq.
+
+METHOD:: callback
+a user-supplied function that is evaluated after each event during playback. The first argument to the function is the event.
